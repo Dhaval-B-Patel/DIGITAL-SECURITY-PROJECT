@@ -1,0 +1,24 @@
+objective:
+generate prime number
+plot the graph for prime numbers using discovery time and prime number
+
+solution:
+i have created three files which uses different methods to store data
+1] "primecsv" generated number from start ie 1 and write those numbers in file 
+	
+	issues:
+		i have found out that it is the fastest way among all 3 files but microsoft excel cnnot display the complete file as record is above 1.4 million which is its limit so i moved on to the second approach.
+	advantages:
+		it is fast
+
+2]"primecsv-large" genrates the number starting from a "671998030559713968361666935769" 30 digit long prime number and genrate other prime numbers 
+	
+	issues:
+		currently testing it
+
+3]"primedb" generates the number from start and write those number in sqllite database
+
+	issues:
+		it takes time to store the numbers in database 
+	advantages:
+		it can handle records upto 3.4 TB so random number can be stored and not limits on data size

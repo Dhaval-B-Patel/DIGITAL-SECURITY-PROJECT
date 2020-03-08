@@ -1,0 +1,31 @@
+objective:
+1] generate list of seeded random numbers
+2] the order should be same for any machine on which code is executed
+3] compare and test it using different machines
+4] use large prime as the seed and test your program 
+
+solution:
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+master code generates the random number using seed and also maintain states to do so so that if the we enter the same seed number it generates the same set of random numbers with this seeded prime number.
+
+i have tested this code for max of 70 digit long random number as the seed value and i plan on increasing its value 
+
+it also provides the additional steps as i have divided the number obtain by random fuction by 1 and then i have only taken integer part of the number. additionally the limit of how many digit number you want to geneate will enhance the key set of algorithm.
+
+so in steganography both algo and the keys are kept secret we can generate random number with prime number as shared key and my custom design algorithm  
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+the functionality added in version 1 is 
+
+1] it writes the state to the text files  
+2] it writs random number generated to the txt file
+
+note
+It is able to generate random numbers every time it run with specific shared key, no of digits and length of random digits
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+the functionality added in version 2-compare-files is
+compare files generated with same configuration as mention in version 2
+it uses library to compare files byte by bytes
