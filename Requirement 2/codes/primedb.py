@@ -24,7 +24,7 @@ print("|  prime number generator  | ")
 print("----------------------------")
 t=float(input("Enter max time to discover prime [minutes] -- "))
 #convert minutes to seconds
-ti= t*60
+ti= t*60.0
 counter = 1
 num=0
 t_total=0
