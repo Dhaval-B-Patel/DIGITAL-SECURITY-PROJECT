@@ -21,10 +21,10 @@ for i in vav: # to take the RGP values and add them to a list
 	j +=1
 
 print (list)
-random.shuffle(list) # shuffle a values
+random.shuffle(list) # shuffle a values ( must be a list )
 print (list)
 
-#for i in list: # to take the RGP values and add them to a list
+#for i in list: # changing the list values to tuples
 #	newVav[j] = i
 #	j +=1
 #print (newVav)  
