@@ -1,0 +1,5 @@
+encryption/decryption shuffling/unshuffling using XOR 
+
+
+
+https://md5decrypt.net/en/Xor/

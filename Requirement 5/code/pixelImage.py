@@ -27,9 +27,10 @@ print (list)
 random.shuffle(list) # shuffle a values ( must be a list )
 print (list)
 
-for i in list: # changing the list values to tuples
+for i in list: # changing the list values to tuples 100+ 9 +9 +9
 	newVav[t] = i
 	t +=1
+	
 print (newVav)  
 
 #pix[x,y] = newVav # Set the RGBA Value of the image (tuple)
