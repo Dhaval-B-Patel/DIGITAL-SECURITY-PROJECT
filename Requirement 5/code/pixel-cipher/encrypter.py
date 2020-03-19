@@ -44,7 +44,6 @@ print(count)
 for i in range(count+1):
     ra=(random.random())
     li.append(ra)
-    print(ra)
 
 # This code is to Save state for next time
 with open('../../files/state-image.dat', 'wb') as f:
@@ -61,7 +60,8 @@ file.close()
 
 vals = []
 for i in range(0, h * w):
-	li[i]=1+li[i]
+    #generate new set of parameters based on random numbers each time for each pixels
+    li[i]=1+li[i]
 	li[i+1]=1+li[i+1]
 	#y0 = 1
 	#x0 = 1.0000001
@@ -72,6 +72,7 @@ for i in range(0, h * w):
 	y0=li[i]
 	x0=li[i+1]
 
+    #implement henon map algorithm 
 	x = 1 - 1.4 * pow(x0, 2) + y0
 	y = 0.3 * x0
 	xr = int(('%.11f' % (x))[4:9]) % w
