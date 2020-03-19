@@ -18,6 +18,11 @@ binary_string = binary_string[2:]
 num=int(binary_string,2)
 print("number key is -- ",end='')
 print(num)
+
+im = Image.open("../../files/"+path)
+px = im.load()
+w, h = im.size
+count=w*h
 #--------------------------------------------------------------------------------------------------------------------------------------------
 li=[]
 if os.path.exists('../../files/state.dat'):
@@ -32,8 +37,10 @@ else:
     print(num)
     random.seed(num)
 
-# generate two random numbers
-for i in "12":
+# generate random numbers
+print("generating total of random numbers -- ",end='' )
+print(count)
+for i in range(count+1):
     ra=(random.random())
     li.append(ra)
     print(ra)
@@ -49,21 +56,18 @@ for i in li:
 file.close()
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
-im = Image.open("../../files/"+path)
-px = im.load()
-w, h = im.size
-li[0]=1+li[0]
-li[1]=1+li[1]
-#y0 = 1
-#x0 = 1.0000001
-if li[1]>li[0]:
-    temp=li[1]
-    li[1]=li[0]
-    li[0]=temp
-y0=li[0]
-x0=li[1]
 
 for i in range(0, h * w):
+    li[i]=1+li[i]
+    li[i+1]=1+li[i+1]
+    #y0 = 1
+    #x0 = 1.0000001
+    if li[i+1]>li[i]:
+        temp=li[i+1]
+        li[i+1]=li[ii]
+        li[i]=temp
+    y0=li[i]
+    x0=li[i+1]
     x = 1 - 1.4 * pow(x0, 2) + y0
     y = 0.3 * x0
     x0 = float('%.14f' % (x))
