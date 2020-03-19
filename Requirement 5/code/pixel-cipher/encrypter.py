@@ -55,32 +55,27 @@ for i in li:
     file.write(';')
 file.close()
 #--------------------------------------------------------------------------------------------------------------------------------------------    
-
-
-
 vals = []
 for i in range(0, h * w):
-    #generate new set of parameters based on random numbers each time for each pixels
+    #generate random parameters for hanaon map
     li[i]=1+li[i]
-	li[i+1]=1+li[i+1]
-	#y0 = 1
-	#x0 = 1.0000001
-	if li[i+1]>li[i]:
-		temp=li[i+1]
-		li[i+1]=li[ii]
-		li[i]=temp
-	y0=li[i]
-	x0=li[i+1]
+    li[i+1]=1+li[i+1]
+    if li[i+1]>li[i]:
+        temp=li[i+1]
+        li[i+1]=li[i]
+        li[i]=temp
+    y0=li[i]
+    x0=li[i+1]
+    #implement haenon map
+    x = 1 - 1.4 * pow(x0, 2) + y0
+    y = 0.3 * x0
+    xr = int(('%.11f' % (x))[4:9]) % w
+    yr = int(('%.11f' % (y))[4:9]) % h
+    vals.append((xr, yr))
+    x0 = float('%.14f' % (x))
+    y0 = float('%.14f' % (y))
 
-    #implement henon map algorithm 
-	x = 1 - 1.4 * pow(x0, 2) + y0
-	y = 0.3 * x0
-	xr = int(('%.11f' % (x))[4:9]) % w
-	yr = int(('%.11f' % (y))[4:9]) % h
-	vals.append((xr, yr))
-	x0 = float('%.14f' % (x))
-	y0 = float('%.14f' % (y))
-
+#shuffle the list seed with the enter password value
 vals.reverse()
 for i in range(0, h * w):
     (xr, yr) = vals[i]

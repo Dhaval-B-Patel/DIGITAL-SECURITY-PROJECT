@@ -43,7 +43,6 @@ print(count)
 for i in range(count+1):
     ra=(random.random())
     li.append(ra)
-    print(ra)
 
 # This code is to Save state for next time
 with open('../../files/state-image.dat', 'wb') as f:
@@ -60,11 +59,9 @@ file.close()
 for i in range(0, h * w):
     li[i]=1+li[i]
     li[i+1]=1+li[i+1]
-    #y0 = 1
-    #x0 = 1.0000001
     if li[i+1]>li[i]:
         temp=li[i+1]
-        li[i+1]=li[ii]
+        li[i+1]=li[i]
         li[i]=temp
     y0=li[i]
     x0=li[i+1]
