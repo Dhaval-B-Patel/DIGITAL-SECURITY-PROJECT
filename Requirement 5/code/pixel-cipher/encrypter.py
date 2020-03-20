@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 
 
-path=str(input("Enter image name -- "))
+path=str(input("Enter original image name -- "))
 password=str(input("password -- "))
 byte_array = password.encode()
 binary_int = int.from_bytes(byte_array, "big")
@@ -57,6 +57,11 @@ for i in li:
 file.close()
 #--------------------------------------------------------------------------------------------------------------------------------------------    
 vals = []
+vals2 = []
+xrl=[]
+yrl=[]
+rxrl=[]
+ryrl=[]
 for i in range(0, h * w):
     #generate random parameters for hanaon map
     li[i]=1+li[i]
@@ -73,12 +78,16 @@ for i in range(0, h * w):
     xr = int(('%.11f' % (x))[4:9]) % w
     yr = int(('%.11f' % (y))[4:9]) % h
     vals.append((xr, yr))
-    #x0 = float('%.14f' % (x))
-    #y0 = float('%.14f' % (y))
-    #plt.plot()
+    xrl.append(xr)
+    yrl.append(yr)
+    plt.plot(xrl,yrl)
+    #plt.show()
+    fig="fig"+str(i)
+    plt.savefig(fig)
+    plt.clf()
 
 
-#shuffle the list seed with the enter password value
+
 vals.reverse()
 for i in range(0, h * w):
     (xr, yr) = vals[i]
@@ -87,6 +96,15 @@ for i in range(0, h * w):
     pr = px[xr, yr]
     px[j % w, int(j / w)] = pr
     px[xr, yr] = p
+    rxrl.append(j)
+    ryrl.append(p)
+    vals2.append((rxrl,ryrl))
+#red value is represented by blue
+#blue value is represented by green
+#green value is represented by orange
+    #plt.plot(rxrl,ryrl)
+    #plt.show()
+    #plt.clf()
 
 path2=str(input("Save as -- "))
 im.save('../../files/'+path2)
