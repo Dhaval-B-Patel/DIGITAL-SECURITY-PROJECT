@@ -7,6 +7,7 @@ import os
 import math
 import pickle
 import textwrap
+import matplotlib.pyplot as plt
 
 
 
@@ -72,8 +73,10 @@ for i in range(0, h * w):
     xr = int(('%.11f' % (x))[4:9]) % w
     yr = int(('%.11f' % (y))[4:9]) % h
     vals.append((xr, yr))
-    x0 = float('%.14f' % (x))
-    y0 = float('%.14f' % (y))
+    #x0 = float('%.14f' % (x))
+    #y0 = float('%.14f' % (y))
+    #plt.plot()
+
 
 #shuffle the list seed with the enter password value
 vals.reverse()

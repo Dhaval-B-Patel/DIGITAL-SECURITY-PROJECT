@@ -68,8 +68,8 @@ for i in range(0, h * w):
     x0=li[i+1]
     x = 1 - 1.4 * pow(x0, 2) + y0
     y = 0.3 * x0
-    x0 = float('%.14f' % (x))
-    y0 = float('%.14f' % (y))
+    #x0 = float('%.14f' % (x))
+    #y0 = float('%.14f' % (y))
     xr = int(('%.11f' % (x))[4:9]) % w
     yr = int(('%.11f' % (y))[4:9]) % h
 
