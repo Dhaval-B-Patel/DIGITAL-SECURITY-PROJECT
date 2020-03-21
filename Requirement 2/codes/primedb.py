@@ -25,7 +25,7 @@ print("----------------------------")
 t=float(input("Enter max time to discover prime [minutes] -- "))
 #convert minutes to seconds
 ti= t*60.0
-counter = 1
+counter = 10000000
 num=0
 t_total=0
 digit = 99999999999999999999977 

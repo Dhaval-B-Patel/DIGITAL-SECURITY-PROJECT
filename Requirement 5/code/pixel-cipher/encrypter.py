@@ -78,14 +78,14 @@ for i in range(0, h * w):
     xr = int(('%.11f' % (x))[4:9]) % w
     yr = int(('%.11f' % (y))[4:9]) % h
     vals.append((xr, yr))
-    xrl.append(xr)
-    yrl.append(yr)
-    plt.plot(xrl,yrl)
-    #plt.show()
+    #xrl.append(xr)
+    #yrl.append(yr)
+    #plt.plot(xrl,yrl)
     fig="fig"+str(i)
-    plt.savefig(fig)
-    plt.clf()
-
+    #plt.savefig(fig)
+    #plt.clf()
+plt.show()
+	
 
 
 vals.reverse()
@@ -96,14 +96,14 @@ for i in range(0, h * w):
     pr = px[xr, yr]
     px[j % w, int(j / w)] = pr
     px[xr, yr] = p
-    rxrl.append(j)
-    ryrl.append(p)
-    vals2.append((rxrl,ryrl))
+    #rxrl.append(j)
+    #ryrl.append(p)
+    #vals2.append((rxrl,ryrl))
 #red value is represented by blue
 #blue value is represented by green
 #green value is represented by orange
     #plt.plot(rxrl,ryrl)
-    #plt.show()
+	#plt.show()
     #plt.clf()
 
 path2=str(input("Save as -- "))
