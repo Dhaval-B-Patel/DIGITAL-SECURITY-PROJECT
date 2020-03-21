@@ -9,6 +9,14 @@ import pickle
 import textwrap
 import matplotlib.pyplot as plt
 
+import cv2 as cv
+import numpy as np
+from imageio import imread
+import sys
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import matplotlib.patches as mpatches
+
 
 
 path=str(input("Enter original image name -- "))
@@ -80,12 +88,14 @@ for i in range(0, h * w):
     vals.append((xr, yr))
     xrl.append(xr)
     yrl.append(yr)
-    plt.plot(xrl,yrl)
+    #uncomment part below if you want to see how algo works but only for 10*10 pixel image
+    #plt.plot(xrl,yrl)
     #plt.show()
-    fig="fig"+str(i)
-    plt.savefig(fig)
-    plt.clf()
-
+    #ucommnet below lines when testing this code for image with pixels greater than 10*10 pixels
+    #fig="../../gif/fig"+str(i)
+    #plt.savefig(fig)
+    #plt.clf()
+#plt.show()
 
 
 vals.reverse()
@@ -96,9 +106,9 @@ for i in range(0, h * w):
     pr = px[xr, yr]
     px[j % w, int(j / w)] = pr
     px[xr, yr] = p
-    rxrl.append(j)
-    ryrl.append(p)
-    vals2.append((rxrl,ryrl))
+    #rxrl.append(j)
+    #ryrl.append(p)
+    #vals2.append((rxrl,ryrl))
 #red value is represented by blue
 #blue value is represented by green
 #green value is represented by orange
@@ -108,5 +118,82 @@ for i in range(0, h * w):
 
 path2=str(input("Save as -- "))
 im.save('../../files/'+path2)
+t2='../../files/'+path2
+t1='../../files/'+path
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
+#plot centeroid color of the image
+image = imread(t1)
+plt.imshow(image)
+img  = cv.cvtColor(np.array(image), cv.COLOR_RGB2BGR)
+rows, cols, _ = img.shape
+color_B = 0
+color_G = 0
+color_R = 0
+color_N = 0 # neutral/gray color
+for i in range(rows):
+    for j in range(cols):
+        k = img[i,j]
+        if k[0] > k[1] and k[0] > k[2]:
+            color_B = color_B + 1
+            continue
+        if k[1] > k[0] and k[1] > k[2]:
+            color_G = color_G + 1
+            continue        
+        if k[2] > k[0] and k[2] > k[1]:
+            color_R = color_R + 1
+            continue
+        color_N = color_N + 1
+
+pix_total = rows * cols
+print('Blue:', (color_B/pix_total)*255, 'Green:', (color_G/pix_total)*255, 'Red:',  (color_R/pix_total)*255, 'Gray:',  (color_N/pix_total)*255)
+red='Red: '+ str((color_R/pix_total)*255)
+green='Green: '+str((color_G/pix_total)*255)
+blue='Blue: '+ str((color_B/pix_total)*255)
+grey='grey: '+ str((color_N/pix_total)*255)
+red_patch = mpatches.Patch(color='red', label=red)
+blue_patch = mpatches.Patch(color='blue', label=blue)
+green_patch = mpatches.Patch(color='green', label=green)
+grey_patch = mpatches.Patch(color='grey', label=grey)
+plt.legend(handles=[red_patch,blue_patch,green_patch,grey_patch])
+#plt.plot(color_R,color_G,color_B)
+plt.show()
+plt.clf()
+
+#plot centroid after encryption
+image = imread(t2)
+plt.imshow(image)
+img  = cv.cvtColor(np.array(image), cv.COLOR_RGB2BGR)
+rows, cols, _ = img.shape
+color_B = 0
+color_G = 0
+color_R = 0
+color_N = 0 # neutral/gray color
+for i in range(rows):
+    for j in range(cols):
+        k = img[i,j]
+        if k[0] > k[1] and k[0] > k[2]:
+            color_B = color_B + 1
+            continue
+        if k[1] > k[0] and k[1] > k[2]:
+            color_G = color_G + 1
+            continue        
+        if k[2] > k[0] and k[2] > k[1]:
+            color_R = color_R + 1
+            continue
+        color_N = color_N + 1
+
+pix_total = rows * cols
+print('Blue:', (color_B/pix_total)*255, 'Green:', (color_G/pix_total)*255, 'Red:',  (color_R/pix_total)*255, 'Gray:',  (color_N/pix_total)*255)
+red='Red: '+ str((color_R/pix_total)*255)
+green='Green: '+str((color_G/pix_total)*255)
+blue='Blue: '+ str((color_B/pix_total)*255)
+grey='grey: '+ str((color_N/pix_total)*255)
+red_patch = mpatches.Patch(color='red', label=red)
+blue_patch = mpatches.Patch(color='blue', label=blue)
+green_patch = mpatches.Patch(color='green', label=green)
+grey_patch = mpatches.Patch(color='grey', label=grey)
+plt.legend(handles=[red_patch,blue_patch,green_patch,grey_patch])
+#plt.plot(color_R,color_G,color_B)
+plt.show()
+plt.clf()

@@ -1,1 +1,21 @@
 https://docs.google.com/document/d/1FFRQoksZrInhlnrRC9_nqRCAIwMKoQ1ZSfa3Mgip0gU/edit?usp=sharing
+
+References
+1} example of how to use chaos theory
+https://www.researchgate.net/publication/319275465_Image_encryption_algorithm_based_on_Lorenz_chaotic_map_with_dynamic_secret_keys
+2}
+https://en.wikipedia.org/wiki/Chaos_theory
+3} henon map
+https://en.wikipedia.org/wiki/H%C3%A9non_map
+4}
+https://docs.python.org/3/reference/
+5}
+https://github.com/nonari/
+6}
+https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
+7}
+https://pynative.com/python-random-seed/
+8}
+https://pymotw.com/2/random/
+9}
+https://sqlitebrowser.org/dl/
