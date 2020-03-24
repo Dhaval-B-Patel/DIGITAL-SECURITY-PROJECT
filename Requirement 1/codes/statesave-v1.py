@@ -30,7 +30,7 @@ if os.path.exists('../files/state.dat'):
     random.setstate(state)
 else:
     # This is called when no state.dat file is found Use a well-known start state
-    print('No state.dat found seeding with-- ', end=''  )
+    print('No state.dat found seeding with-- ',end='')
     print(sharedKey)
     random.seed(sharedKey)
 
