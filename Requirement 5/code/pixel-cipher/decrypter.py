@@ -95,35 +95,46 @@ image = imread(t1)
 plt.imshow(image)
 img  = cv.cvtColor(np.array(image), cv.COLOR_RGB2BGR)
 rows, cols, _ = img.shape
-color_B = 0
-color_G = 0
-color_R = 0
-color_N = 0 # neutral/gray color
+#color_B = 0
+#color_G = 0
+#color_R = 0
+#color_N = 0 # neutral/gray color
+bl=0
+gr=0
+re=0
 for i in range(rows):
     for j in range(cols):
-        k = img[i,j]
-        if k[0] > k[1] and k[0] > k[2]:
-            color_B = color_B + 1
-            continue
-        if k[1] > k[0] and k[1] > k[2]:
-            color_G = color_G + 1
-            continue        
-        if k[2] > k[0] and k[2] > k[1]:
-            color_R = color_R + 1
-            continue
-        color_N = color_N + 1
+        k = img[i,j] 
+        bl=bl+k[0]
+        gr=gr+k[1]
+        re=re+k[2]
+        #if k[0] > k[1] and k[0] > k[2]:
+        #    color_B = color_B + 1
+        #    continue
+        #if k[1] > k[0] and k[1] > k[2]:
+        #    color_G = color_G + 1
+        #    continue        
+        #if k[2] > k[0] and k[2] > k[1]:
+        #    color_R = color_R + 1
+        #    continue
+        #color_N = color_N + 1
 
 pix_total = rows * cols
-print('Blue:', (color_B/pix_total)*255, 'Green:', (color_G/pix_total)*255, 'Red:',  (color_R/pix_total)*255, 'Gray:',  (color_N/pix_total)*255)
-red='Red: '+ str((color_R/pix_total)*255)
-green='Green: '+str((color_G/pix_total)*255)
-blue='Blue: '+ str((color_B/pix_total)*255)
-grey='grey: '+ str((color_N/pix_total)*255)
+#print('the most dominanat channel average in image is-  ')
+#print('Blue:', (color_B/pix_total)*255, 'Green:', (color_G/pix_total)*255, 'Red:',  (color_R/pix_total)*255, 'Gray:',  (color_N/pix_total)*255)
+print('centroid of image is at - ')
+print('Blue:', (bl/pix_total), 'Green:', (gr/pix_total), 'Red:',  (re/pix_total))
+red='Red: '+ str(re/pix_total)
+green='Green: '+str(gr/pix_total)
+blue='Blue: '+ str(bl/pix_total)
+#grey='grey: '+ str((color_N/pix_total)*255)
+labt="CENTROID"
 red_patch = mpatches.Patch(color='red', label=red)
 blue_patch = mpatches.Patch(color='blue', label=blue)
 green_patch = mpatches.Patch(color='green', label=green)
-grey_patch = mpatches.Patch(color='grey', label=grey)
-plt.legend(handles=[red_patch,blue_patch,green_patch,grey_patch])
+#grey_patch = mpatches.Patch(color='grey', label=grey)
+lab=mpatches.Patch(color='white', label=labt)
+plt.legend(handles=[lab,red_patch,blue_patch,green_patch])
 #plt.plot(color_R,color_G,color_B)
 plt.show()
 plt.clf()
@@ -133,37 +144,47 @@ image = imread(t2)
 plt.imshow(image)
 img  = cv.cvtColor(np.array(image), cv.COLOR_RGB2BGR)
 rows, cols, _ = img.shape
-color_B = 0
-color_G = 0
-color_R = 0
-color_N = 0 # neutral/gray color
+#color_B = 0
+#color_G = 0
+#color_R = 0
+#color_N = 0 # neutral/gray color
+bl=0
+gr=0
+re=0
 for i in range(rows):
     for j in range(cols):
-        k = img[i,j]
-        if k[0] > k[1] and k[0] > k[2]:
-            color_B = color_B + 1
-            continue
-        if k[1] > k[0] and k[1] > k[2]:
-            color_G = color_G + 1
-            continue        
-        if k[2] > k[0] and k[2] > k[1]:
-            color_R = color_R + 1
-            continue
-        color_N = color_N + 1
+        k = img[i,j] 
+        bl=bl+k[0]
+        gr=gr+k[1]
+        re=re+k[2]
+        #if k[0] > k[1] and k[0] > k[2]:
+        #    color_B = color_B + 1
+        #    continue
+        #if k[1] > k[0] and k[1] > k[2]:
+        #    color_G = color_G + 1
+        #    continue        
+        #if k[2] > k[0] and k[2] > k[1]:
+        #    color_R = color_R + 1
+        #    continue
+        #color_N = color_N + 1
 
 pix_total = rows * cols
-print('Blue:', (color_B/pix_total)*255, 'Green:', (color_G/pix_total)*255, 'Red:',  (color_R/pix_total)*255, 'Gray:',  (color_N/pix_total)*255)
-red='Red: '+ str((color_R/pix_total)*255)
-green='Green: '+str((color_G/pix_total)*255)
-blue='Blue: '+ str((color_B/pix_total)*255)
-grey='grey: '+ str((color_N/pix_total)*255)
+#print('the most dominanat channel average in image is-  ')
+#print('Blue:', (color_B/pix_total)*255, 'Green:', (color_G/pix_total)*255, 'Red:',  (color_R/pix_total)*255, 'Gray:',  (color_N/pix_total)*255)
+print('centroid of image is at - ')
+print('Blue:', (bl/pix_total), 'Green:', (gr/pix_total), 'Red:',  (re/pix_total))
+red='Red: '+ str(re/pix_total)
+green='Green: '+str(gr/pix_total)
+blue='Blue: '+ str(bl/pix_total)
+#grey='grey: '+ str((color_N/pix_total)*255)
+labt="CENTROID"
 red_patch = mpatches.Patch(color='red', label=red)
 blue_patch = mpatches.Patch(color='blue', label=blue)
 green_patch = mpatches.Patch(color='green', label=green)
-grey_patch = mpatches.Patch(color='grey', label=grey)
-plt.legend(handles=[red_patch,blue_patch,green_patch,grey_patch])
+#grey_patch = mpatches.Patch(color='grey', label=grey)
+lab=mpatches.Patch(color='white', label=labt)
+plt.legend(handles=[lab,red_patch,blue_patch,green_patch])
 #plt.plot(color_R,color_G,color_B)
 plt.show()
 plt.clf()
-
 
