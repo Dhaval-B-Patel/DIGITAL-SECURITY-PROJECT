@@ -81,6 +81,7 @@ for i in range(0, h * w):
     y0=li[i]
     x0=li[i+1]
     #implement haenon map
+    #a=1.4 b=0.3
     x = 1 - 1.4 * pow(x0, 2) + y0
     y = 0.3 * x0
     xr = int(('%.11f' % (x))[4:9]) % w
