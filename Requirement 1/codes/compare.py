@@ -19,9 +19,9 @@ temp=0
 while True:
     choice = int(input("provide your choice -- "))
     if(choice == 1):
-        with open(path1) as fi1:
+        with open(path1) as f1:
             f1_text = fi1.read()
-        with open(path2) as fi2:
+        with open(path2) as f2:
             f2_text = fi2.read()
         # Find and print the diff:
         for line in difflib.unified_diff(f1_text, f2_text, fromfile=sys.argv[1], tofile=sys.argv[2], lineterm=''):
