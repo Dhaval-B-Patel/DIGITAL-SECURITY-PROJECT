@@ -13,23 +13,21 @@ while True:
     temp=0
     choice = int(input("provide your choice -- "))
     if(choice == 1):
-        ds=input("enter file 1 -- ")
-        ds1=input("enter file 2 -- ")
-        ds2=input("enter difference file name -- ")
-        path1="../files/"+ds
-        path2="../files/"+ds1
-        path3="../files/"+ds2
-        fi1=open(path1,"r")
-        fi2=open(path2,"r")
+        path1="../files/"+sys.argv[1]
+        path2="../files/"+sys.argv[2]
+        path3="../files/"+sys.argv[3]
+        fi1=open(path1,"r").readlines()
+        fi2=open(path2,"r").readlines()
         fi3=open(path3,"w")
-        with open(path1) as f1:
-            f1_text = fi1.read()
-        with open(path2) as f2:
-            f2_text = fi2.read()
+        #print(fi1)
+        #print("*********************************************")
+        #print(fi2)
         # Find and print the diff:
-        for line in difflib.unified_diff(f1_text, f2_text, fromfile=sys.argv[1], tofile=sys.argv[2], lineterm=''):
+        for line in difflib.unified_diff(fi1,fi2):
             fi3.write(str(line))
         fi3.close()
+        if(os.stat(path3).st_size == 0):
+            print("differnce file size 0 KB as there is no difference between them")
 
 
     elif(choice == 2):
@@ -68,13 +66,13 @@ while True:
                 break
 
         if(flag==1):
-        	print(sys.argv[1],end='')
+        	print(ds,end='')
         	print(" is not equal to ",end='')
-        	print(sys.argv[2])
+        	print(ds1)
         if(flag==0):
-        	print(sys.argv[1],end='')
+        	print(ds,end='')
         	print(" is equal to ",end='')
-        	print(sys.argv[2])
+        	print(ds1)
 
     if(choice == 3):
         print("Exit")
