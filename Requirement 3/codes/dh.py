@@ -71,7 +71,7 @@ while True:
 			num=int(binary_string,2)
 			#val=list(map(int, str(num)))
 			res=0
-			nt=str(num)
+			nt=str(sharedkey)
 			for i in range(0, len(nt)):
 				res = (res * 10 + int(nt[i])) % count;
 			print(nt)
@@ -104,13 +104,13 @@ while True:
 
 			pat=str(input("Enter the path to store file -- "))
 			f=open("../files/"+pat,"w")
-			pathfiles=str(sharedkey)+";"+str(sendnumber)+";"+str(count)+";"+str(powe)
+			pathfiles=str(sharedkey)+";"+str(sendnumber)+";"+str(count)+";"+str(powe)+";"+str(li[res])
 			pathfile=str(pathfiles)
 			#print(pathfile)
 			for k in pathfile:
 				f.write(k)
 			f.close()
-			print(str(sharedkey)+";"+str(sendnumber)+";"+str(count)+";"+str(powe))
+			print(str(sharedkey)+";"+str(sendnumber)+";"+str(count)+";"+str(powe)+";"+str(li[res]))
 			choi=str(input("Enter y to exit "))
 			if(choi=='y'):
 				print("exit to main menu")
@@ -140,8 +140,9 @@ while True:
 			print(ar[2])
 			print("digit of random number - ") 
 			print(ar[3])
+			print("The random number the sender has generated is -- ")
+			print(ar[4])
 			li=[]
-
 
 			#---------------------------------------------------------------------------------------------------------------------------------------------
 			#code to generate random numbers and choose the number
@@ -184,6 +185,14 @@ while True:
 			print(binary_string)
 			#num is the integer representation of the string value
 			num=int(binary_string,2)
+			res=0
+			nt=str(ar[0])
+			for i in range(0, len(nt)):
+				res = (res * 10 + int(nt[i])) % int(count)
+			print("random number on your side -- ",end='')
+			print(li[res])
+			print("random number sender has send -- ",end='')
+			print(ar[4])
 			
 			#---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -210,105 +219,21 @@ while True:
 
 			pat=str(input("Enter the path to store file -- "))
 			f=open("../files/"+pat,"w")
-			pathfiles=str(sharedkey)+";"+str(sendnumber)+";"+str(count)+";"+str(powe)
+			pathfiles=str(sharedkey)+";"+str(sendnumber)+";"+str(count)+";"+str(powe)+";"+str(li[res])
 			pathfile=str(pathfiles)
 			for k in pathfile:
 				f.write(k)
 			f.close()
-			print(str(sharedkey)+";"+str(sendnumber)+";"+str(count)+";"+str(powe))
+			print(str(sharedkey)+";"+str(sendnumber)+";"+str(count)+";"+str(powe)+";"+str(li[res]))
 			choi=str(input("Enter y to exit "))
 			if(choi=='y'):
 				print("exit to main menu")
 				break
 
 	if(ch==3):
-		print("Exiting program .it will be destroyed in 5 seconds")
+		print("Exiting program . Files will be destroyed in 5 seconds")
+		#comment below line if dont want to clear screen after exiting
+		os.system("cls")
+		#removes the entered msg so that it can only be used once
+		#os.remove("../files/"+pat)
 		break
-
-
-
-
-
-
-
-
-	#---------------------------------------------------------------------------------------------------------------------------------------------
-
-	"""
-		if(choi==2):
-			#code to change the string in to integer 
-			a=str(input("ENTER THE SECRET PASSWORD (A):-- "))
-			byte_array = a.encode()
-			binary_int = int.from_bytes(byte_array, "big")
-			binary_string = bin(binary_int)
-			binary_string = binary_string[2:]
-			num=int(binary_string,2)
-			print(num)
-			snum=str(num)
-			sn=0
-			for i in snum:
-				sn=int(sn)+int(i)
-			sn=int(sn)
-			print(sn)
-			print(li[sn])
-					
-
-		if(choi==3):
-			#code to choose base and generate shared prime number
-			b=int(input("enter the value of base [b] -- "))
-			#pt=(input("Enter the prime number(shared key) -- "))
-			#sum the digits of prime number and choose sumth prime number from prime number table
-			#ptt=int(sum([int(i) for i in str(pt)]))
-			#path="../files/"+sys.argv[1]
-			#conn = sqlite3.connect(path)
-			#conn.row_factory = lambda cursor, row: row[0]
-			#cur = conn.cursor()
-			#cur.execute("SELECT * FROM prime")
-			#rows=cur.fetchall()
-			#for i in rows:
-			#	p=rows[ptt]
-			#print(p)
-			A= math.pow(b,sn)%int(sharedkey)
-			print(A)
-			
-	  
-
-		if(choi==4):
-			AB=int(input("Enter the value of [A] or [B] recieved -- "))
-			#get no from choice 2 to compute (A pow a) mod p
-			sharedkey=int(sharedkey)
-			temp1=math.pow(AB,sn)
-			temp2=int(sharedkey)
-			sk= temp1%temp2
-
-		if(choi==5):
-			#concate string with + and share them
-			msgs=str(sk)+str('+')+str(sharedkey)+str('+')+str(power)
-			print(msgs)
-
-		if(choi==6):
-			#recieved message
-			msgrt=input("Enter the message recieved -- ")
-			msgr=msgrt.split('+')
-			print("shared number -- {}".format(msgr[0]))
-			print("prime number -- {}".format(msgr[1]))
-			print("no of digits in random generator -- {}".format(msgr[2]))
-			power=msgr[2]
-			sharedKey=msgr[1]
-
-		if(choi==7):
-			break
-
-
-
-		
-		#end of code to generate random numbers 
-		
-	"""
-	#return it back to string
-	#binary_int = int(binary_string, 2)
-	#byte_number = binary_int.bit_length() + 7 // 8
-
-	#binary_array = binary_int.to_bytes(byte_number, "big")
-	#ascii_text = binary_array.decode()
-	#print(ascii_text)
