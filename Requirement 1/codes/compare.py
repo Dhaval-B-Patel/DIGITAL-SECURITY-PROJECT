@@ -13,22 +13,25 @@ while True:
     temp=0
     choice = int(input("provide your choice -- "))
     if(choice == 1):
-        path1="../files/"+sys.argv[1]
-        path2="../files/"+sys.argv[2]
-        path3="../files/"+sys.argv[3]
+        ds=input("enter file 1 -- ")
+        ds1=input("enter file 2 -- ")
+        ds2=input("save differnce as -- ")
+        path1="../files/"+ds
+        path2="../files/"+ds1
+        path3="../files/"+ds2
         fi1=open(path1,"r").readlines()
         fi2=open(path2,"r").readlines()
         fi3=open(path3,"w")
-        #print(fi1)
-        #print("*********************************************")
-        #print(fi2)
         # Find and print the diff:
         for line in difflib.unified_diff(fi1,fi2):
             fi3.write(str(line))
         fi3.close()
+        #if there is no difference the file size of diff file will be 0 KB
         if(os.stat(path3).st_size == 0):
             print("differnce file size 0 KB as there is no difference between them")
-
+        else:
+            print("New file created of size - ",end='')
+            print(os.stat(path3).st_size)
 
     elif(choice == 2):
         ds=input("enter file 1 -- ")
