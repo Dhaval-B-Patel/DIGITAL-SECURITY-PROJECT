@@ -29,7 +29,7 @@ if os.path.exists('../files/state.dat'):
         state = pickle.load(f)
     random.setstate(state)
 else:
-    # This is called when no state.dat file is found Use a well-known start state
+    # This is called when no state.dat file is found and seed the file with sharedkey
     print('No state.dat found seeding with-- ',end='')
     print(sharedKey)
     random.seed(sharedKey)

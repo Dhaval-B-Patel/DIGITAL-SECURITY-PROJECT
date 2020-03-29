@@ -82,22 +82,24 @@ while True:
 			
 			#---------------------------------------------------------------------------------------------------------------------------------------------
 			#calculate a pow b mod m for large b and m
-			#fernet little theroam
 			def power(x, y, p): 
 				res = 1;
+				#Update x if it is more than or equal to p 
 				x = x % p; 
-
+				#If y is odd, multiply x with the result
 				while (y > 0): 
 					if (y & 1): 
-						res = (res * x) % p; 
-					y = y >> 1;
+						res = (res * x) % p;
+					#y must be even now 
+					y = y >> 1; # y = y/2
 					x = (x * x) % p; 
 				return res;
 			mod=str(sharedkey)
 			num=str(num)
 			a=str(base)
 			rem=0
-			for i in range(len(num)): 
+			for i in range(len(num)):
+				#Reduce the number b to a small number using Fermat Little 
 				rem = ((rem * 10 + ord(num[i]) - 48) % (sharedkey - 1));
 			AB=power(base, rem, sharedkey)
 			sendnumber=AB
