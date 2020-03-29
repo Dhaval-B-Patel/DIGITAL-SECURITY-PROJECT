@@ -4,6 +4,9 @@ https://docs.google.com/document/d/1FFRQoksZrInhlnrRC9_nqRCAIwMKoQ1ZSfa3Mgip0gU/
 PPT
 https://docs.google.com/presentation/d/1wiAdI1fmrgUfvINrLgsmwILCmmpsTuAeZHZRLGT8dQs/edit#slide=id.g71d67d4d30_0_2
 
+GITHUB links
+https://github.com/Dhaval-B-Patel/DIGITAL-SECURITY-PROJECT.git
+
 References
 1} example of how to use chaos theory
 https://www.researchgate.net/publication/319275465_Image_encryption_algorithm_based_on_Lorenz_chaotic_map_with_dynamic_secret_keys
