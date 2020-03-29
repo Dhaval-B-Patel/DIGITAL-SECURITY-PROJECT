@@ -82,6 +82,7 @@ while True:
 			
 			#---------------------------------------------------------------------------------------------------------------------------------------------
 			#calculate a pow b mod m for large b and m
+			#implement core logic of deffie-hellman and fernet little theroam implementation
 			def power(x, y, p): 
 				res = 1;
 				#Update x if it is more than or equal to p 
@@ -120,6 +121,7 @@ while True:
 
 	if(ch==2):
 		while True:
+			#below 25 lines of code is to fetch the values of prime number from send message 
 			print("------------------------------------------------------------")
 			print("||||||||||||| Diffie-Hellman Key Exchange ||||||||||||||||||")
 			print("------------------------------------------------------------")

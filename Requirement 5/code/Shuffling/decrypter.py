@@ -1,6 +1,6 @@
 
 
-#Ciphers an image by shuffling its pixels using a Henon Map
+#Un-shuffle pixels of image
 #it shows chaotic behavior for 1.4 and 0.3 values which are classical values
 from PIL import Image
 import os

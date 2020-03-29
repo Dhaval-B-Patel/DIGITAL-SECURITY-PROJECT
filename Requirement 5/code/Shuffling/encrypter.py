@@ -1,4 +1,4 @@
-#Ciphers an image by shuffling its pixels using a Henon Map
+#shuffling pixels
 
 from PIL import Image
 import os
@@ -137,7 +137,8 @@ t1='../../files/'+path
 #--------------------------------------------------------------------------------------------------------------------------------------------
 #plot centeroid color of the image
 #uncomment the code in comments if you want to find most dominating color in a pixel averages
-#[221,100,50],[100,200,150],[100,100,150],[50,100,200] average is [221/4,200/4,(150+200)/4] 
+#[221,100,50],[100,200,150],[100,100,150],[50,100,200] dominating color average is [221/4,200/4,(150+200)/4]
+#average color is [(221+100+100+50)/4],[(100+200+100+100)/4],[(50+150+150+200)/4] for RGB values 
 image = imread(t1)
 plt.imshow(image)
 img  = cv.cvtColor(np.array(image), cv.COLOR_RGB2BGR)
