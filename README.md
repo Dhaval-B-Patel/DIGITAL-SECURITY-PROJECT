@@ -1,4 +1,4 @@
-﻿This project was made by Dhaval Patel and Faris alhwirini for the Digital Security course taken at University of regina.
+﻿<b><br>This project was made by Dhaval Patel and Faris alhwirini for the Digital Security course taken at University of regina.<b><br>
 
 <b>Requirements<b><br>
 	<b>Requirement 1 - Random Numbers<b><br>
