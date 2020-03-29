@@ -28,7 +28,8 @@ ti= t*60.0
 counter = 1
 num=0
 t_total=0
-digit = 99999999999999999999977 
+#we can end the program when prime number generated is greater than prime number
+#digit = 99999999999999999999977 
 while True:
 	# start the clock
 	t_start=timeit.default_timer() # start time with precision of nano second
@@ -56,8 +57,10 @@ while True:
 	# counter is incremented twice intentionally as every other is a even so divisible by 2
 	counter = counter + 2
 	#break if the total time reaches the input time of max time
-	if(t_total>=ti or counter>=digit):
+	if(t_total>=t):
 		break
+	#if(counter>=digit):
+	#	break
 
 
 """

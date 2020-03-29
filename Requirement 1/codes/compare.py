@@ -22,7 +22,7 @@ while True:
         fi1=open(path1,"r").readlines()
         fi2=open(path2,"r").readlines()
         fi3=open(path3,"w")
-        # Find and print the diff:
+        # Find and print the diff bit by bit:
         for line in difflib.unified_diff(fi1,fi2):
             fi3.write(str(line))
         fi3.close()
@@ -45,6 +45,8 @@ while True:
         #fi3=open(path3,"w")
         with open(path1,'r') as fi1:
         	for line in fi1:
+        		#this snippet is to read all the lines in the file and split the lines
+        		#" ; " and stores the numbers in list and compare both lists
         		for word in line.split(";"):
         			a.append(word)
         fi1.close()
@@ -54,6 +56,7 @@ while True:
         		for word1 in line1.split(";"):
         			b.append(word1)
         fi2.close()
+        #this logic is to find if the list generated after splitting is saemin length if not avoid comparision
         if(len(a)>len(b)):
         	flag=1
         if(len(b)>len(a)):

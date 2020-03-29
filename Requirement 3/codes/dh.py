@@ -199,7 +199,7 @@ while True:
 			#---------------------------------------------------------------------------------------------------------------------------------------------
 
 			#calculate a pow b mod m for large b and m
-			#fernet little theroam
+			#fernet little theroam implementation i.e implemeting core deffi hellman logic
 			def power(x, y, p): 
 				res = 1;
 				x = x % p; 
@@ -218,7 +218,7 @@ while True:
 				rem = ((rem * 10 + ord(num[i]) - 48) % (sharedkey - 1));
 			AB=power(base, rem, sharedkey)
 			sendnumber=AB
-
+			#store the generated values in the file
 			pat=str(input("Enter the path to store file -- "))
 			f=open("../files/"+pat,"w")
 			pathfiles=str(sharedkey)+";"+str(sendnumber)+";"+str(count)+";"+str(powe)+";"+str(li[res])
